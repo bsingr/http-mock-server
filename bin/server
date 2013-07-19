@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+const PORT = process.env.PORT || 8888;
+const {server, maxHeaderSize, protocol} = require('../lib/server');
+
+server.listen(PORT, () => {
+  console.log(`Accepting max header size:\t${maxHeaderSize}`)
+  console.log(`Server listening on:\t${protocol}://0.0.0.0:${PORT}`)
+});
+
+process.on('SIGINT', function () {
+  console.log('SIGINT, Stopping server');
+  server.close();
+  process.exit(1);
+});

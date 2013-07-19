@@ -1,0 +1,25 @@
+{
+  "name": "http-mock-server",
+  "version": "0.0.1",
+  "description": "A simple, zero-dependency http test server, mirroring any http/https request for testing purpose. Alternative to httpbin.",
+  "main": "lib/server.js",
+  "directories": {
+    "bin": "bin",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "NODE_OPTIONS=--max-http-header-size=65536 bin/server",
+    "test": "LOG=no NODE_OPTIONS=--max-http-header-size=65536 npx mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bsingr/http-mock-server.git"
+  },
+  "author": "Jens Bissinger",
+  "license": "MIT",
+  "devDependencies": {
+    "axios": "^1.1.2",
+    "mocha": "^10.0.0"
+  }
+}
